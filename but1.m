@@ -1,0 +1,16 @@
+clc;
+clear all;
+close all;
+rp=0.4;
+rs=0.5;
+fp=150;
+fs=100;
+Fs=1000;
+wp=2*fp/Fs;
+ws=2*fs/Fs;
+[N,wn]=buttord(wp,ws,rp,rs);
+[b,a]=butter(N,wn,'low');
+[h,o]=freqz(b,a,512,Fs);
+m=20*log10(abs(h));
+subplot(1,1,1);
+stem(o/pi,m);
