@@ -1,0 +1,25 @@
+clc;
+clear all;
+close all;
+x=input('enter sequence 1');
+n1=length(x);
+h=input('enter sequnce 2');
+n2=length(h);
+subplot(3,1,1);
+stem(x);
+title('input');
+xlabel('time');
+ylabel('amplitude');
+subplot(3,1,2);
+stem(h);
+title('input');
+xlabel('time');
+ylabel('amplitude');
+N=max(n1,n2);
+y=cconv(x,h,N);
+subplot(3,1,3);
+stem(y);
+title('output');
+xlabel('time');
+ylabel('amplitude');
+disp('the convoluted sequnce is');y
